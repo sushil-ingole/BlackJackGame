@@ -31,6 +31,7 @@ let blackjackGame = {
     'hitted': false,
     'isStand': false,
     'turnsOver': false,
+    'info': false,
 }
 
 const YOU = blackjackGame['you'];
@@ -44,6 +45,7 @@ document.querySelector('#blackjack-hit-button').addEventListener('click', blackj
 document.querySelector('#blackjack-stand-button').addEventListener('click', blackjackStand);
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 document.querySelector('#blackjack-reset-button').addEventListener('click', blackjackReset);
+document.querySelector('#blackjack-info-button').addEventListener('click', blackjackInfo);
 
 function blackjackHit() {
     if (blackjackGame['isStand'] === false) {
@@ -230,6 +232,17 @@ function blackjackReset() {
         blackjackGame['wins'] = 0;
         blackjackGame['losses'] = 0;
         blackjackGame['draws'] = 0;
+}
+
+function blackjackInfo() {
+    if (blackjackGame['info'] === false) {
+        document.getElementById('info').style.display = "flex";
+        blackjackGame['info'] = true;
+    }
+    else if (blackjackGame['info'] === true) {
+        document.getElementById('info').style.display = "none";
+        blackjackGame['info'] = false;
+    }
 }
 
 

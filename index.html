@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackJack</title>
     <link rel="shortcut icon" href="#">
-    
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <!-- CSS  -->
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
+
 <body>
     <div class="container">
         <h1 class="title">Blackjack</h1>
@@ -25,6 +28,46 @@
             <div id="dealer-box">
                 <h2>Dealer: <span id="dealer-blackjack-result">0</span></h2>
             </div>
+            <div class="infoBox" id="info">
+                <h3>Instructions</h1>
+                    <p>The Game starts ONLY with a <strong>HIT</strong>.</p>
+                    <p>You can press <strong>HIT</strong> until you get <strong>BUST</strong>.</p>
+                    <p><strong>STAND</strong> can be pressed only after a <strong>HIT</strong>, similarly
+                        <strong>DEAL</strong> can be pressed only after a <strong>STAND</strong>. </p>
+                    <p>Press <strong>RESET</strong> to reset the game.</p>
+                    <hr style="border: 2px solid black;">
+                    <h4>How to play!</h2>
+                        <p>Start pressing <strong>HIT</strong> until score is closer to less than or equal to 21.</p>
+                        <p>Player gets <strong>BUSTED</strong> if score crosses 21.</p>
+                        <p>Now press <strong>STAND</strong> so that <strong>DEALER</strong> can play.</p>
+                        <table>
+                            <tr>
+                                <td>BUSTED</td>
+                                <td class="table-td-2">
+                                    <p>If <strong>YOU</strong> and <strong>DEALER</strong> both get <strong>BUSTED</strong> then
+                                        it's
+                                        a draw.</p>
+                                    <p>If <strong>YOU</strong> get <strong>BUSTED</strong> and <strong>DEALER</strong> don't then
+                                        it's a loss.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>NOT BUSTED</td>
+                                <td class="table-td-2">
+                                    <p>If <strong>YOUR</strong> score is
+                                        <strong>more</strong> than <strong>DEALER</strong> score then it's a win.
+                                        <p>If <strong>YOUR</strong> score is <strong>less</strong> than <strong>DEALER</strong>
+                                            score then it's a
+                                            loss.
+                                        </p>
+                                        <p>If <strong>YOUR</strong> score is <strong>equal</strong> to <strong>DEALER</strong> score
+                                            then it's a
+                                            draw.
+                                        </p>
+                                </td>
+                            </tr>
+                        </table>
+            </div>
         </div>
         <div class="flex-blackjack-row-2">
             <button class="btn btn-lg btn-primary mr-2" id="blackjack-hit-button">Hit</button>
@@ -33,6 +76,9 @@
             <button class="btn btn-lg btn-success mr-2" id="blackjack-reset-button">Reset</button>
         </div>
         <div class="flex-blackjack-row-3">
+            <button class="btn btn-lg btn-info mr-2" id="blackjack-info-button">How to play!</button>
+        </div>
+        <div class="flex-blackjack-row-4">
             <table>
                 <tr>
                     <th>Wins</th>
@@ -50,4 +96,5 @@
     </div>
     <script src="/js/script.js"></script>
 </body>
+
 </html>
