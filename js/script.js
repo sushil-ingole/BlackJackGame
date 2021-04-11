@@ -43,6 +43,7 @@ const winSound = new Audio('/sounds/cash.mp3');
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
 document.querySelector('#blackjack-stand-button').addEventListener('click', blackjackStand);
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
+document.querySelector('#blackjack-reset-button').addEventListener('click', blackjackReset);
 
 function blackjackHit() {
     if (blackjackGame['isStand'] === false) {
@@ -195,6 +196,40 @@ function showResult(activePlayer) {
     document.querySelector('#blackjack-result').textContent = message;
     document.querySelector('#blackjack-result').style.color = messageColor;
 
+}
+
+function blackjackReset() {
+
+    let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+    let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
+    for (let i = 0; i < yourImages.length; i++) {
+        yourImages[i].remove();
+    }
+    for (let i = 0; i < dealerImages.length; i++) {
+        dealerImages[i].remove();
+    }
+
+    YOU['score'] = 0;
+        DEALER['score'] = 0;
+        
+        document.querySelector('#your-blackjack-result').style.color = 'white';
+        document.querySelector('#dealer-blackjack-result').style.color = 'white';
+        document.querySelector('#your-blackjack-result').textContent = 0;
+        document.querySelector('#dealer-blackjack-result').textContent = 0;
+        document.querySelector('#blackjack-result').textContent = "Let's play";
+        document.querySelector('#blackjack-result').style.color = "black";
+        document.querySelector('#wins').textContent = 0;
+        document.querySelector('#losses').textContent = 0;
+        document.querySelector('#draws').textContent = 0;
+        blackjackGame['isStand'] = false;
+        blackjackGame['turnsOver'] = false;
+        blackjackGame['hitted'] = false;
+        console.log("isStand", blackjackGame['isStand']);
+        console.log("turnsOver", blackjackGame['turnsOver']);
+        console.log("hitted", blackjackGame['hitted']);
+        blackjackGame['wins'] = 0;
+        blackjackGame['losses'] = 0;
+        blackjackGame['draws'] = 0;
 }
 
 
