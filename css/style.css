@@ -61,6 +61,9 @@ table, th, td {
 }
 
 @media (min-width: 0px) and (max-width: 1200px) {
+    .btn {
+        margin: 5px 2px;
+    }
     .container {
         max-width: 100%;
     }
