@@ -241,7 +241,7 @@ function blackjackInfo() {
         var element2 = document.getElementById('your-box');
         var element3 = document.getElementById('dealer-box');
         var element4 = document.getElementById('info');
-        // element1.classList.add('info-display');
+        element1.classList.add('info-display');
         element2.classList.add('info-display');
         element3.classList.add('info-display');
         element4.classList.add('info-display');
@@ -249,14 +249,6 @@ function blackjackInfo() {
         console.log(blackjackGame['info']);
     } else if (blackjackGame['info'] === true) {
         document.getElementById('info').style.display = "none";
-        var element1 = document.getElementById('flex-blackjack-row-1-id');
-        var element2 = document.getElementById('your-box');
-        var element3 = document.getElementById('dealer-box');
-        var element4 = document.getElementById('info');
-        // element1.classList.add('info-display1');
-        // element2.classList.add('info-display1');
-        // element3.classList.add('info-display1');
-        // element4.classList.add('info-display1');
         blackjackGame['info'] = false;
         console.log(blackjackGame['info']);
     }
