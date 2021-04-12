@@ -76,6 +76,11 @@ td {
     text-align: center;
 }
 
+.infoBox-hr {
+    border: 2px solid black;
+    margin: -2px 0;
+}
+
 table {
     top: -10px;
     bottom: 13px;
