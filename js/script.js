@@ -66,7 +66,7 @@ async function blackjackStand() {
     do {
 
         if (blackjackGame['hitted'] === true && DEALER['score'] <= 15) {
-            
+
             blackjackGame['isStand'] = true;
             while (DEALER['score'] < 16 && blackjackGame['isStand'] === true) {
                 blackjackGame['hitted'] = false;
@@ -76,7 +76,7 @@ async function blackjackStand() {
                 showScore(DEALER);
                 await sleep(1000);
             }
-            
+
             if (DEALER['score'] > 15) {
                 blackjackGame['turnsOver'] = true;
                 showResult(computeWinner());
@@ -103,10 +103,10 @@ function blackjackDeal() {
         for (let i = 0; i < dealerImages.length; i++) {
             dealerImages[i].remove();
         }
-        
+
         YOU['score'] = 0;
         DEALER['score'] = 0;
-        
+
         document.querySelector('#your-blackjack-result').style.color = 'white';
         document.querySelector('#dealer-blackjack-result').style.color = 'white';
         document.querySelector('#your-blackjack-result').textContent = 0;
@@ -212,36 +212,53 @@ function blackjackReset() {
     }
 
     YOU['score'] = 0;
-        DEALER['score'] = 0;
-        
-        document.querySelector('#your-blackjack-result').style.color = 'white';
-        document.querySelector('#dealer-blackjack-result').style.color = 'white';
-        document.querySelector('#your-blackjack-result').textContent = 0;
-        document.querySelector('#dealer-blackjack-result').textContent = 0;
-        document.querySelector('#blackjack-result').textContent = "Let's play";
-        document.querySelector('#blackjack-result').style.color = "black";
-        document.querySelector('#wins').textContent = 0;
-        document.querySelector('#losses').textContent = 0;
-        document.querySelector('#draws').textContent = 0;
-        blackjackGame['isStand'] = false;
-        blackjackGame['turnsOver'] = false;
-        blackjackGame['hitted'] = false;
-        console.log("isStand", blackjackGame['isStand']);
-        console.log("turnsOver", blackjackGame['turnsOver']);
-        console.log("hitted", blackjackGame['hitted']);
-        blackjackGame['wins'] = 0;
-        blackjackGame['losses'] = 0;
-        blackjackGame['draws'] = 0;
+    DEALER['score'] = 0;
+
+    document.querySelector('#your-blackjack-result').style.color = 'white';
+    document.querySelector('#dealer-blackjack-result').style.color = 'white';
+    document.querySelector('#your-blackjack-result').textContent = 0;
+    document.querySelector('#dealer-blackjack-result').textContent = 0;
+    document.querySelector('#blackjack-result').textContent = "Let's play";
+    document.querySelector('#blackjack-result').style.color = "black";
+    document.querySelector('#wins').textContent = 0;
+    document.querySelector('#losses').textContent = 0;
+    document.querySelector('#draws').textContent = 0;
+    blackjackGame['isStand'] = false;
+    blackjackGame['turnsOver'] = false;
+    blackjackGame['hitted'] = false;
+    console.log("isStand", blackjackGame['isStand']);
+    console.log("turnsOver", blackjackGame['turnsOver']);
+    console.log("hitted", blackjackGame['hitted']);
+    blackjackGame['wins'] = 0;
+    blackjackGame['losses'] = 0;
+    blackjackGame['draws'] = 0;
 }
 
 function blackjackInfo() {
     if (blackjackGame['info'] === false) {
         document.getElementById('info').style.display = "flex";
+        var element1 = document.getElementById('flex-blackjack-row-1-id');
+        var element2 = document.getElementById('your-box');
+        var element3 = document.getElementById('dealer-box');
+        var element4 = document.getElementById('info');
+        // element1.classList.add('info-display');
+        element2.classList.add('info-display');
+        element3.classList.add('info-display');
+        element4.classList.add('info-display');
         blackjackGame['info'] = true;
-    }
-    else if (blackjackGame['info'] === true) {
+        console.log(blackjackGame['info']);
+    } else if (blackjackGame['info'] === true) {
         document.getElementById('info').style.display = "none";
+        var element1 = document.getElementById('flex-blackjack-row-1-id');
+        var element2 = document.getElementById('your-box');
+        var element3 = document.getElementById('dealer-box');
+        var element4 = document.getElementById('info');
+        // element1.classList.add('info-display1');
+        // element2.classList.add('info-display1');
+        // element3.classList.add('info-display1');
+        // element4.classList.add('info-display1');
         blackjackGame['info'] = false;
+        console.log(blackjackGame['info']);
     }
 }
 
