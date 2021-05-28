@@ -32,6 +32,7 @@ let blackjackGame = {
     'isStand': false,
     'turnsOver': false,
     'info': false,
+    'mute': false,
 }
 
 const YOU = blackjackGame['you'];
@@ -46,6 +47,7 @@ document.querySelector('#blackjack-stand-button').addEventListener('click', blac
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 document.querySelector('#blackjack-reset-button').addEventListener('click', blackjackReset);
 document.querySelector('#blackjack-info-button').addEventListener('click', blackjackInfo);
+document.querySelector('#blackjack-mute-button').addEventListener('click', blackjackMute);
 
 function blackjackHit() {
     if (blackjackGame['isStand'] === false) {
@@ -127,7 +129,9 @@ function showCard(card, activePlayer) {
         let cardImage = document.createElement('img');
         cardImage.src = `/images/${card}.png`;
         document.querySelector(activePlayer['div']).appendChild(cardImage);
-        hitSound.play();
+        if (blackjackGame.mute === false) {
+            hitSound.play();
+        }
     }
 }
 
@@ -183,12 +187,16 @@ function showResult(activePlayer) {
         document.querySelector('#wins').textContent = blackjackGame['wins'];
         message = 'You won!';
         messageColor = 'green';
-        winSound.play();
+        if (blackjackGame.mute === false) {
+            winSound.play();
+        }
     } else if (activePlayer === DEALER) {
         document.querySelector('#losses').textContent = blackjackGame['losses'];
         message = 'You lost!';
         messageColor = 'red';
-        lostSound.play();
+        if (blackjackGame.mute === false) {
+            lostSound.play();
+        }
     } else {
         document.querySelector('#draws').textContent = blackjackGame['draws'];
         message = 'You drew!';
@@ -252,6 +260,11 @@ function blackjackInfo() {
         blackjackGame['info'] = false;
         console.log(blackjackGame['info']);
     }
+}
+
+function blackjackMute() {
+    blackjackGame.mute = !blackjackGame.mute;
+    console.log("Mute: " + blackjackGame.mute);
 }
 
 
